@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temp Converter</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-app='tempconverter'>
+    <!--[if lt IE 10]>
+      <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
+    <div ng-controller='main_ctr'>
+    	<label> Input Temperature
+    		<input type='text' ng-model='input_temperature'/>
+    		<select ng-model='input_units'>
+    			<option value='rankine' ng-if="output_units != 'rankine'">Rankine</option>
+    			<option value='kelvin' ng-if="output_units != 'kelvin'">Kelvin</option>
+    			<option value='fahrenheit' ng-if="output_units != 'fahrenheit'">Fahrenheit</option>
+    			<option value='celsius' ng-if="output_units != 'celsius'">Celsius</option>
+    		</select>
+    	</label>
+
+   		<br><br>
+
+    	<label> Target Units
+    		<select ng-model='output_units'>
+    			<option value='rankine' ng-if="input_units != 'rankine'">Rankine</option>
+    			<option value='kelvin' ng-if="input_units != 'kelvin'">Kelvin</option>
+    			<option value='fahrenheit' ng-if="input_units != 'fahrenheit'">Fahrenheit</option>
+    			<option value='celsius' ng-if="input_units != 'celsius'">Celsius</option>
+    		</select>
+    	</label>
+
+    	<br><br>
+
+    	<button ng-click='evaluate()'> Evaluate </button>
+
+        <br><br>
+        {{evaluation}}
+    </div>
+
+</body>
+</html>
